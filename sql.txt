@@ -1,0 +1,172 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1
+-- Généré le :  jeu. 02 mai 2024 à 12:24
+-- Version du serveur :  5.7.17
+-- Version de PHP :  5.6.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données :  `lesrandons`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `bus`
+--
+
+CREATE TABLE `bus` (
+  `matricule` varchar(20) NOT NULL,
+  `marque` varchar(100) NOT NULL,
+  `couleur` varchar(50) NOT NULL,
+  `date` date NOT NULL,
+  `nbrPlace` int(20) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `bus`
+--
+
+INSERT INTO `bus` (`matricule`, `marque`, `couleur`, `date`, `nbrPlace`) VALUES
+('b1', 'peugeot', 'noir', '2024-04-01', 2),
+('b2', 'citroen', 'bleu', '2024-04-30', 2),
+('b3', 'peugeot', 'noir', '2020-01-01', 3),
+('b4', 'peugeot', 'noir', '2013-02-12', 4),
+('b5', 'Volkswagen', 'bleu', '2017-07-10', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `randonnee`
+--
+
+CREATE TABLE `randonnee` (
+  `idRandonnee` varchar(20) NOT NULL,
+  `image` varchar(200) NOT NULL,
+  `objectif` varchar(255) NOT NULL,
+  `ville` varchar(100) NOT NULL,
+  `description` text,
+  `date_debut` date NOT NULL,
+  `date_fin` date NOT NULL,
+  `etat` enum('0','1','2') NOT NULL,
+  `commentaire` text,
+  `matricule` varchar(20) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `randonnee`
+--
+
+INSERT INTO `randonnee` (`idRandonnee`, `image`, `objectif`, `ville`, `description`, `date_debut`, `date_fin`, `etat`, `commentaire`, `matricule`) VALUES
+('r4', '986983.jpg', 'Pour se recentrer sur des choses simples', 'Klebia', 'Comme aprÃ¨s toute activitÃ© physique, on se sent bien physiquement, en partie grÃ¢ce aux hormones libÃ©rÃ©es. La randonnÃ©e permet dâ€™Ãªtre plus dÃ©tendu et plus relÃ¢chÃ© â€“ malgrÃ© quelques raideurs et courbatures parfois  En plus, la marche a un effet trÃ¨s bÃ©nÃ©fique sur la santÃ©', '2018-09-10', '2018-09-20', '2', ' Ce dÃ©but dâ€™annÃ©e est donc le moment idÃ©al pour rÃ©server du temps pour vos randonnÃ©es. Alors, faites-le', 'b4'),
+('r8', '268036.jpg', 'Pour se recentrer sur des choses simples', 'Rafraaf', 'Comme aprÃ¨s toute activitÃ© physique, on se sent bien physiquement, en partie grÃ¢ce aux hormones libÃ©rÃ©es. La randonnÃ©e permet dâ€™Ãªtre plus dÃ©tendu et plus relÃ¢chÃ© â€“ malgrÃ© quelques raideurs et courbatures parfois  En plus, la marche a un effet trÃ¨s bÃ©nÃ©fique sur la santÃ©', '2024-07-02', '2024-07-05', '0', ' Ce dÃ©but dâ€™annÃ©e est donc le moment idÃ©al pour rÃ©server du temps pour vos randonnÃ©es. Alors, faites-le', 'b2'),
+('r6', '190751.jpg', ' Pour se sentir bien moralement', 'ZAGHOUN', 'Pour se ressourcer comme certains disent. Toutes les raisons mentionnÃ©es ci-dessus permettent de se sentir beaucoup mieux moralement avec toutes les consÃ©quences positives que cela entraÃ®ne. Il nâ€™est donc pas Ã©tonnant que la randonnÃ©e soit un plaisirâ€¦', '2024-05-02', '2024-05-05', '0', ' Ce dÃ©but dâ€™annÃ©e est donc le moment idÃ©al pour rÃ©server du temps pour vos randonnÃ©es. Alors, faites-le', 'b1'),
+('r25', '450044.jpg', 'eeee', 'Sfax', 'zzz', '2024-05-03', '2024-05-09', '0', 'rjjr', 'b5'),
+('r2', '808603.jpg', 'Poour profiter de la nature', 'Ain Drahem', 'Profiter des paysages, de la faune et la flore dâ€™une maniÃ¨re privilÃ©giÃ©e. Lâ€™odeur de la forÃªt, le rafraÃ®chissement dâ€™une brise de montagne, la sensation des chemins sous les pieds, la beautÃ© dâ€™une mer de nuage, la contemplation dâ€™un animal qui mange', '2024-04-18', '2024-04-30', '1', 'Pourquoi faire de la randonnÃ©e? Ã€ vous de jouer ', 'b4'),
+('r1', '321815.jpg', 'Pour se recentrer sur des choses simples', 'Oued el Kesria', 'Comme aprÃ¨s toute activitÃ© physique, on se sent bien physiquement, en partie grÃ¢ce aux hormones libÃ©rÃ©es. La randonnÃ©e permet dâ€™Ãªtre plus dÃ©tendu et plus relÃ¢chÃ© â€“ malgrÃ© quelques raideurs et courbatures parfois  En plus, la marche a un effet trÃ¨s bÃ©nÃ©fique sur la santÃ©', '2020-01-01', '2020-01-10', '2', ' Ce dÃ©but dâ€™annÃ©e est donc le moment idÃ©al pour rÃ©server du temps pour vos randonnÃ©es. Alors, faites-le', 'b2'),
+('r7', '795524.jpg', 'Pour se sentir bien physiquement', 'bizerte', 'Comme aprÃ¨s toute activitÃ© physique, on se sent bien physiquement, en partie grÃ¢ce aux hormones libÃ©rÃ©es. La randonnÃ©e permet dâ€™Ãªtre plus dÃ©tendu et plus relÃ¢chÃ© â€“ malgrÃ© quelques raideurs et courbatures parfois  En plus, la marche a un effet trÃ¨s bÃ©nÃ©fique sur la santÃ©', '2024-06-02', '2024-06-05', '0', ' Ce dÃ©but dâ€™annÃ©e est donc le moment idÃ©al pour rÃ©server du temps pour vos randonnÃ©es. Alors, faites-le', 'b1'),
+('r9', '933874.jpg', 'Pour se recentrer sur des choses simples', 'ZAGHOUN', 'Comme AprÃ¨s toute activitÃ© physique, on se sent bien physiquement, en partie grÃ¢ce aux hormones libÃ©rÃ©es. La randonnÃ©e permet dâ€™Ãªtre plus dÃ©tendu et plus relÃ¢chÃ© â€“ malgrÃ© quelques raideurs et courbatures parfois  En plus, la marche a un effet trÃ¨s bÃ©nÃ©fique sur la santÃ©', '2024-05-01', '2024-05-07', '1', ' Ce dÃ©but dâ€™annÃ©e est donc le moment idÃ©al pour rÃ©server du temps pour vos randonnÃ©es. Alors, faites-le', 'b2'),
+('r10', '166910.jpg', 'Pour profiter de la nature', 'Gabes', 'l nâ€™y a rien de plus chaleureux quâ€™une discussion autour du feu dans un refuge ou dehors sous les Ã©toiles. Randonner est Ã©galement un excellent moment privilÃ©giÃ© Ã  partager avec les personnes qui vous sont chÃ¨res.', '2024-07-02', '2024-07-05', '0', 'Pour profiter de la nature', 'b3');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `randonneur`
+--
+
+CREATE TABLE `randonneur` (
+  `idRandonnee` varchar(20) NOT NULL,
+  `cin` int(8) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `randonneur`
+--
+
+INSERT INTO `randonneur` (`idRandonnee`, `cin`) VALUES
+('r1', 1),
+('r3', 8),
+('r4', 8),
+('r6', 3),
+('r7', 2),
+('r7', 5),
+('r8', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur`
+--
+
+CREATE TABLE `utilisateur` (
+  `cin` int(8) NOT NULL,
+  `image` varchar(200) NOT NULL,
+  `password` text NOT NULL,
+  `nom` text NOT NULL,
+  `prenom` varchar(20) NOT NULL,
+  `date_naiss` date NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `role` enum('0','1') NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`cin`, `image`, `password`, `nom`, `prenom`, `date_naiss`, `email`, `role`) VALUES
+(5, '368521.jpg', '$2y$10$PrRWTrKNw5q/.z5hA0sFKeBqLNPyBAX03KuSDGwOSpshZUoJGrk5e', 'BenHamed', 'Mohamed', '2009-05-02', 'Mmohamed@gmail.vom', '0'),
+(4, '802475.jpg', '$2y$10$gbIkArw3115iVAYfqS1DGuY7U14nUAzlx3izcJkCUvwJgATUka64m', 'bali', 'Mounir', '2000-03-03', 'Mounir@gmail.com', '0'),
+(3, '482878.jpg', '$2y$10$FL61Ne8BeRHNtB/.tQyDc.YhPJCaLMCCZOPwb9YScsKayxRYYN..O', 'Chouri', 'Ali', '2012-07-03', 'ali@gmail.com', '0'),
+(2, '597632.jpg', '$2y$10$SuTbAPO0Vd6coSCjMS01sOG3h5yo8m22oM43MTtHoNpmwB2Hau7PK', 'Var', 'Alex', '2016-12-26', 'alex@gmail.com', '1'),
+(1, '564249.jpg', '$2y$10$QDw89bDPOPgn0cdFVNxeuueYk0ZpugGGzIYkc37Bz6exDVeGzXSfW', 'Bougdar', 'Hachem', '2003-04-16', 'hachembougdar@gmail.com', '1'),
+(11, '214257.jpg', '$2y$10$.w1hOB3yMxwwmlgEZXv5vueIjkYI5znhni8ZjRqciXrBPaj9Z2lu2', 'yengui', 'Ameni', '2024-05-01', 'ame@gmail.com', '0'),
+(7, '681624.jpg', '$2y$10$Yc6ALliu641XRB8wcZTYAe8XxAj9MXnt1.YfSfaVEitJyVBZ5gYXi', 'Akri', 'Dali', '2017-05-05', 'dali@gmail.com', '0'),
+(8, '935917.jpg', '$2y$10$/.AOPDjoZow5UM05jgSnbepjvWZAnrGVSVhoycSmjwZTnCdIvkq.i', 'damak', 'Mounir', '2009-06-05', 'damak@gmail.com', '0'),
+(9, '111271.jpg', '$2y$10$EEjRONu1KhHXziANghKi7.3x8Yp3HwrvWplsOVQT0drxpdxEggxBm', 'alou', 'ali', '2019-10-10', 'alii@gmail.com', '0');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `bus`
+--
+ALTER TABLE `bus`
+  ADD PRIMARY KEY (`matricule`);
+
+--
+-- Index pour la table `randonnee`
+--
+ALTER TABLE `randonnee`
+  ADD PRIMARY KEY (`idRandonnee`);
+
+--
+-- Index pour la table `randonneur`
+--
+ALTER TABLE `randonneur`
+  ADD PRIMARY KEY (`idRandonnee`,`cin`),
+  ADD KEY `cin` (`cin`);
+
+--
+-- Index pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD PRIMARY KEY (`cin`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

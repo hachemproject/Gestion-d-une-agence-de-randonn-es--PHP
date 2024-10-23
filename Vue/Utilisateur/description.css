@@ -1,0 +1,49 @@
+
+* {
+    background-color: rgb(183, 221, 249);
+    box-sizing: border-box;
+    color: white;
+    margin: 0;
+  }
+.titre__game {
+    margin-top: 77px;
+    text-align: center;
+    font-size: 70px;
+    line-height: 70px;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+    color: black;
+    text-transform: capitalize;
+    font-family: 'Comic Sans MS';
+}
+.dis__game{
+    font-size: 20px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 20px;
+    letter-spacing: 0.25px;
+    color: black;
+    text-transform: capitalize;
+    font-family: 'Comic Sans MS';
+}
+.titre_dis__game{
+    font-size: 25px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 45px;
+    letter-spacing: 0.25px;
+    color: #1b9bff;
+    text-transform: capitalize;
+    font-family: 'Comic Sans MS';
+}
+img{
+    margin-left: 30%;
+}
+.dis__game li{
+    color: black;
+}
+
+
+
+
+
